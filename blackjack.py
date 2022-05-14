@@ -170,12 +170,12 @@ mainWindow = tkinter.Tk()
 
 # Setup the screen and frames for the game
 mainWindow.title("--Black Jack--")
-mainWindow.geometry('640x480')
-mainWindow.configure(background='green')
+mainWindow.geometry('400x380')
+mainWindow.configure(background='#348048')
 
 # Result frame to display the result of the Game
 result_text = tkinter.StringVar()
-result = tkinter.Label(mainWindow, textvariable=result_text, background="green", fg="tan1")
+result = tkinter.Label(mainWindow, textvariable=result_text, background="#348048", fg="tan1")
 result.grid(row=2, column=0, columnspan=3)
 
 dealer_score_label = tkinter.IntVar()
@@ -183,7 +183,7 @@ player_score_label = tkinter.IntVar()
 
 # Card frame to display the dealer and the player card
 card_frame = tkinter.Frame(mainWindow, relief="sunken", borderwidth=1, background="green")
-card_frame.grid(row=3, column=0, sticky='ew', columnspan=3, rowspan=2)
+card_frame.grid(row=3, column=0, sticky='ew', columnspan=4, rowspan=2)
 
 tkinter.Label(card_frame, text="Dealer", background="green", fg="DarkGoldenrod1").grid(row=0, column=0)
 tkinter.Label(card_frame, textvariable=dealer_score_label, background="green", fg="DarkGoldenrod1").grid(row=1,
@@ -202,16 +202,16 @@ player_card_frame.grid(row=2, column=1, sticky='ew', rowspan=2)
 button_frame = tkinter.Frame(mainWindow, background="green")
 button_frame.grid(row=5, column=0, columnspan=3, sticky='w')
 
-dealer_button = tkinter.Button(button_frame, text="Dealer", background="DarkGoldenrod1", command=deal_dealer)
+dealer_button = tkinter.Button(button_frame, text="Dealer", background="#92A4E3", command=deal_dealer)
 dealer_button.grid(row=0, column=0)
 
-player_button = tkinter.Button(button_frame, text="Player", background="goldenrod3", command=deal_player)
+player_button = tkinter.Button(button_frame, text="Player", background="#E9A6F4", command=deal_player)
 player_button.grid(row=0, column=1)
 
-new_game_button = tkinter.Button(button_frame, text="New Game", background="tan1", command=new_game)
+new_game_button = tkinter.Button(button_frame, text="New Game", background="#00DC53", command=new_game)
 new_game_button.grid(row=0, column=2)
 
-load_deck_button = tkinter.Button(button_frame, text="Load new deck", background="tan1", command=load_new_deck)
+load_deck_button = tkinter.Button(button_frame, text="Load new deck", background="#FDB73D", command=load_new_deck)
 load_deck_button.grid(row=0, column=3)
 
 shuffle_deck_button = tkinter.Button(button_frame, text="Shuffle deck", background="tan2", command=shuffle)
@@ -219,20 +219,20 @@ shuffle_deck_button.grid(row=0, column=4)
 
 # Main result frame to display the total games won by the dealer, player and number of matches that went draw
 result_frame = tkinter.Frame(mainWindow)
-result_frame.grid(row=0, column=0, rowspan=2, columnspan=3, sticky='ew')
-result_frame.configure(background="green")
+result_frame.grid(row=0, column=1, rowspan=2, sticky='ew')
+result_frame.configure(background="green", borderwidth='2', relief='raised')
 
 dealer_won_label = tkinter.IntVar()
 tkinter.Label(result_frame, text="Dealer won", background="green", fg="DarkGoldenrod1").grid(row=0, column=0)
 tkinter.Label(result_frame, textvariable=dealer_won_label, background="green", fg="DarkGoldenrod1").grid(row=1,
                                                                                                          column=0)
 player_won_label = tkinter.IntVar()
-tkinter.Label(result_frame, text="Player won", background="green", fg="goldenrod3").grid(row=0, column=2)
-tkinter.Label(result_frame, textvariable=player_won_label, background="green", fg="goldenrod3").grid(row=1, column=2)
+tkinter.Label(result_frame, text="Player won", background="green", fg="goldenrod3").grid(row=0, column=1)
+tkinter.Label(result_frame, textvariable=player_won_label, background="green", fg="goldenrod3").grid(row=1, column=1)
 
 draw_label = tkinter.IntVar()
-tkinter.Label(result_frame, text="Draw", background="green", fg="tan1").grid(row=0, column=4)
-tkinter.Label(result_frame, textvariable=draw_label, background="green", fg="tan1").grid(row=1, column=4)
+tkinter.Label(result_frame, text="Draw", background="green", fg="tan1").grid(row=0, column=2)
+tkinter.Label(result_frame, textvariable=draw_label, background="green", fg="tan1").grid(row=1, column=2)
 
 # Load cards
 cards = []
